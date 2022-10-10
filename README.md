@@ -1,3 +1,3 @@
-# Guessing Game
+# Rust Playground
 
-First attempts at learning Rust via [the official tutorial](https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html).
+Learning Rust via [the official book](https://doc.rust-lang.org/book/)...
