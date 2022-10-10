@@ -20,4 +20,12 @@ fn main() {
     // }
 
     println!("You guessed: {guess}");
+
+    // let x = 5;
+    // let y = 10;
+
+    // println!("{x}");
+    // println!("{y}");
+    // println!("{x} and {y}");
+    // println!("x = {} and y = {}", x, y);
 }
