@@ -1,0 +1,5 @@
+*
+!src/**
+!configuration/**
+!Cargo.toml
+!Cargo.lock
