@@ -19,7 +19,7 @@ fn main() {
     //     Err(error) => println!("error: {error}"),
     // }
 
-    println!("You guessed: {guess}");
+    println!("You guessed, {guess}");
 
     // let x = 5;
     // let y = 10;
