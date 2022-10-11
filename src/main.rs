@@ -2,17 +2,6 @@
 
 fn main() {
     if_conditions();
-    try_loops();
-}
-
-fn try_loops() {
-    let mut i = 0;
-    loop {
-        if (i % 1000 == 0) {
-            println!("hey! {i}");
-        }
-        i += 1;
-    }
 }
 
 fn if_conditions() {
