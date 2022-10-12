@@ -14,4 +14,4 @@ impl TestStruct {
         thread::sleep(duration);
         println!("long running fn delayed by {seconds}s - COMPLETED");
     }
-}
+}test?
