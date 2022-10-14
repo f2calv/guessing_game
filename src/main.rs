@@ -13,11 +13,14 @@ fn main() {
     }
     //println!("{}", s);
 
-    let x = 5;
+    let mut x = 5;
     let y = x;
+    println!("x = {}, y = {}", x, y);
+    x += 1;
+    println!("x = {}, y = {}", x, y);
 
     let s1 = String::from("hello");
-    let s2 = s1;
+    let s2 = s1.clone();
 
     println!("s1 = {}, s2 = {}", s1, s2);
 }
