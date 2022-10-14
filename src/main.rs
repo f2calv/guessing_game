@@ -1,6 +1,23 @@
+#![allow(unused)]
 fn main() {
     to_test(true);
     println!("Hello, world!");
+
+    //let mut s: String;
+    {
+        let mut s = String::from("hello");
+
+        s.push_str(" 123");
+
+        println!("{}", s);
+    }
+    //println!("{}", s);
+
+    let x = 5;
+    let y = x;
+
+    let s1 = String::from("hello");
+    let s2 = s1;
 }
 
 fn to_test(output: bool) -> bool {
