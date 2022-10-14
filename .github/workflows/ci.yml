@@ -98,4 +98,5 @@ jobs:
 
       - name: docker push
         run: docker push $REGISTRY/$REPOSITORY:$GIT_TAG
-        if: github.ref == 'refs/heads/main'
+        #if: github.ref == 'refs/heads/main'
+        if: false
