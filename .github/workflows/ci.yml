@@ -53,6 +53,9 @@ jobs:
       - name: image:build
         run: docker build -t image:build . --target build
 
+      - name: image:final
+        run: docker build -t image:final . --target final
+
       - name: cargo fmt
         run: docker run --rm --name fmt image:source cargo fmt --all --check
         if: always()
@@ -65,7 +68,7 @@ jobs:
         run: docker run --rm --name clippy image:build cargo test
         if: always()
 
-      - name: image:final
+      - name: docker build
         run: |
           docker build \
             -t $REGISTRY/$REPOSITORY:$GIT_TAG \
@@ -81,8 +84,5 @@ jobs:
             --pull \
             . --target final
 
-      - name: docker tag
-        run: docker tag image:final myrepo/output:1.2.3
-
       - name: docker push
-        run: docker push myrepo/output:1.2.3
+        run: docker push $REGISTRY/$REPOSITORY:$GIT_TAG
