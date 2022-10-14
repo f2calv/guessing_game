@@ -2,7 +2,7 @@
 
 Learning Rust via [the official book](https://doc.rust-lang.org/book/)...
 
-## Local Deveopment
+## Local Development
 
 ## vscode devcontainer
 
