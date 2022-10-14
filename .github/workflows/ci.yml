@@ -1,0 +1,67 @@
+name: ci
+
+on:
+  workflow_dispatch:
+    inputs:
+    #Note: not yet plugged in...
+      BuildConfiguration:
+        type: choice
+        description: Build Configuration
+        required: true
+        default: release
+        options:
+          - release
+          - debug
+  push:
+    branches-ignore:
+      - "preview/**"
+    paths-ignore:
+      - LICENSE
+      - README.md
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    defaults:
+      run:
+        shell: bash
+    steps:
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: image:base
+        run: docker build -t image:base . --target base
+
+      - name: image:dependencies
+        run: docker build -t image:dependencies . --target dependencies
+
+      - name: image:source
+        run: docker build -t image:source . --target source
+
+      - name: image:build
+        run: docker build -t image:build . --target build
+
+      - name: cargo fmt
+        run: docker run --rm --name fmt image:source cargo fmt --all --check
+        if: always()
+
+      - name: cargo clippy
+        run: docker run --rm --name clippy image:source cargo clippy -- -D warnings
+        if: always()
+
+      - name: cargo test
+        run: docker run --rm --name clippy image:build cargo test
+        if: always()
+
+      - name: image:final
+        run: docker build -t image:final . --target final
+
+      - name: docker tag
+        run: docker tag image:final myrepo/output:1.2.3
+
+      - name: docker push
+        run: docker push myrepo/output:1.2.3
