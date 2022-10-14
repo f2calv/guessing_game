@@ -28,6 +28,13 @@ jobs:
     defaults:
       run:
         shell: bash
+    env:
+      REGISTRY: ghcr.io
+      #REPOSITORY: Note: set dynamically, i.e. github.repository_owner+IMAGE_NAME
+      GIT_REPO: ${{ github.repository }}
+      GIT_TAG: 0.0.1
+      GIT_BRANCH: ${{ github.ref }}
+      GIT_COMMIT: ${{ github.sha }}
     steps:
 
       - uses: actions/checkout@v2
@@ -59,7 +66,20 @@ jobs:
         if: always()
 
       - name: image:final
-        run: docker build -t image:final . --target final
+        run: |
+          docker build \
+            -t $REGISTRY/$REPOSITORY:$GIT_TAG \
+            --label "GITHUB_RUN_ID=${{ github.run_id }}" \
+            --label "IMAGE_NAME=$IMAGE_NAME" \
+            --build-arg GIT_REPO=$GIT_REPO \
+            --build-arg GIT_TAG=$GIT_TAG \
+            --build-arg GIT_BRANCH=$GIT_BRANCH \
+            --build-arg GIT_COMMIT=$GIT_COMMIT \
+            --build-arg GITHUB_WORKFLOW=${{ github.workflow }} \
+            --build-arg GITHUB_RUN_ID=${{ github.run_id }} \
+            --build-arg GITHUB_RUN_NUMBER=${{ github.run_number }} \
+            --pull \
+            . --target final
 
       - name: docker tag
         run: docker tag image:final myrepo/output:1.2.3
