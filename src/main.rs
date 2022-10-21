@@ -1,6 +1,21 @@
+mod app_config;
+use app_config::AppConfig;
+use env_logger::Env;
+
 fn main() {
+    //launch the app and override a TOML value from an env variable (need to use 2x_ for the section prefix)
+    //i.e. RUST_LOG=debug DEBUG=1 APP_APPLICATION__HOST=wibble APP_APPLICATION__SOME_VALUE="hello back!" cargo run
+    env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
+
+    let app_config = AppConfig::new().expect("configuration error");
+    // Print out test settings
+    log::info!("app_config={:?}", app_config);
+    log::info!(
+        "app_config.application.host={}",
+        app_config.application.host
+    );
+
     to_test(true);
-    println!("Hello, world!");
 }
 
 fn to_test(output: bool) -> bool {

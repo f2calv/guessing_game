@@ -1,0 +1,8 @@
+debug = false
+
+[application]
+host = "prodhostvalue"
+some_value = "hello world"
+
+[database]
+url = "mydburl"
