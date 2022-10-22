@@ -1,6 +1,26 @@
+#![allow(unused)]
+
 fn main() {
+    let mut s = String::from("hello world");
+    let word = first_word(&s);
+    s.clear(); //this empties the string making it equal to ""
+
+    //word is now a number, but cannot be linked directly to a string as 's' is now emptied
+
     to_test(true);
-    println!("Hello, world!");
+    //println!(s);
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
 }
 
 fn to_test(output: bool) -> bool {
