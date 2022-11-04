@@ -66,6 +66,9 @@ jobs:
       - name: image:final
         run: docker build -t image:final . --target final
 
+      - name: cargo version
+        run: cargo version
+
       - name: cargo fmt
         run: docker run --rm --name fmt image:source cargo fmt --all --check
         if: always()
