@@ -19,6 +19,11 @@ fn main() {
         println!("x = {}, y = {}", x, y);
         x += 1;
         println!("x = {}, y = {}", x, y);
+
+        let z = String::from("wibble123");
+        if z.len() > 100 {
+            print!("z='{}'", z);
+        }
     }
 
     {
