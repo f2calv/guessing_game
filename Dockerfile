@@ -1,5 +1,5 @@
-ARG BASE_IMAGE=rust:1.64.0
-ARG FINAL_IMAGE=rust:1.64.0
+ARG BASE_IMAGE=rust:latest
+ARG FINAL_IMAGE=rust:latest
 FROM $BASE_IMAGE AS base
 RUN apt-get update && apt-get install -yq lld clang
 RUN rustup component add clippy
