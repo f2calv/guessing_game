@@ -1,5 +1,5 @@
 //Note: based on https://github.com/mehcode/config-rs/blob/master/examples/hierarchical-env/settings.rs
-use config::{Config, ConfigError, Environment, File};
+use config::{Config, ConfigError, File};
 use serde::Deserialize;
 use std::env;
 
@@ -47,7 +47,7 @@ impl AppConfig {
             // Eg.. `APP_DEBUG=1 ./target/app` would set the `debug` key
             //Note: to test remember double underscore separators 'APP_APPLICATION__HOST=wibble cargo run'
             .add_source(
-                Environment::with_prefix("APP")
+                config::Environment::with_prefix("APP")
                     .prefix_separator("_")
                     .separator("__"),
             )
