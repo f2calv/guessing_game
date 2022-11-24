@@ -1,5 +1,6 @@
-!.vscode/extensions.json
+.vs/*
 .vscode/*
+!.vscode/extensions.json
 
 # Added by cargo
 

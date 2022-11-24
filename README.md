@@ -1,19 +1,22 @@
 # Rust Playground
 
-Learning Rust via [the official book](https://doc.rust-lang.org/book/)...
+Learning Rust via;
 
-## Local Development
+- https://www.rust-lang.org/learn;
 
-## vscode devcontainer
+    - [the official book](https://doc.rust-lang.org/book/)
+    - [the rustlings course](https://github.com/rust-lang/rustlings/)
+    - [rust by example](https://doc.rust-lang.org/stable/rust-by-example/)
 
-Launch vscode and then open this repo in a container.
+- [@letsgetrusty](https://www.youtube.com/@letsgetrusty)
+- [@codetothemoon](https://www.youtube.com/@codetothemoon)
 
-## WSL
+## Local Development via vscode devcontainer
 
-```bash
-#install rustup+cargo+clippy+etc...
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+- Install vscode
+- Install [Remote Development Extension Pack for vscode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+- Rust has loads of small files which will give you performance problems when working in a container with a mounted volume, so mount the repository in a virtual volume;
 
-#in a new window try 'cargo build' if that fails you may need to install build essentials;
-sudo apt-get update && sudo apt install build-essential -y
-```
+    - In vscode press F1 and select 'Dev Containers: Clone Repository in Container Volume', enter this repo URL.
+
+- After the container image has built you are ready to Rust!

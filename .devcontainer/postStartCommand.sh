@@ -8,6 +8,8 @@ rustup --version
 
 rustc --version
 
+#cargo install --locked cargo-outdated
+
 # alias cls="clear"
 # alias cc="cargo check"
 # alias cb="cargo build"
