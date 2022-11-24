@@ -1,7 +1,0 @@
-debug = true
-
-[application]
-host = "devhostvalue"
-
-[database]
-url = "dev-db-url"
