@@ -3,5 +3,13 @@
 version = 3
 
 [[package]]
-name = "rust-playground"
+name = "myapp"
+version = "0.1.0"
+
+[[package]]
+name = "mylib"
+version = "0.1.0"
+
+[[package]]
+name = "myotherapp"
 version = "0.1.0"
