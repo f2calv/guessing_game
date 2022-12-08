@@ -342,6 +342,8 @@ dependencies = [
 name = "myapp"
 version = "0.1.0"
 dependencies = [
+ "mylib",
+ "myotherlib",
  "serde_json",
 ]
 
@@ -355,6 +357,10 @@ dependencies = [
 
 [[package]]
 name = "myotherapp"
+version = "0.1.0"
+
+[[package]]
+name = "myotherlib"
 version = "0.1.0"
 
 [[package]]

@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 serde_json = "1.0.85"
+mylib = { path = "../mylib" }
+myotherlib = { path = "../myotherlib" }

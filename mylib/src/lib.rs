@@ -12,3 +12,9 @@ mod tests {
         assert_eq!(result, 4);
     }
 }
+
+pub mod some_module {
+    pub fn testing_add(first: i32, second: i32) -> i32 {
+        first + second
+    }
+}
